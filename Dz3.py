@@ -70,9 +70,9 @@
 #         else:
 #             print(sort_list[i])
 
-# Вариант 2
+# # Вариант 2
 
-# m = abs(k - list_1[0]) # модуль
+# m = abs(k - list_1[0])  # модуль числа
 # number = list_1[0]
 # for i in range(1, len(list_1)):
 #     if m > abs(list_1[i] - k):
@@ -213,3 +213,52 @@
 
 # # Выводим стоимость слова
 # print(f"Стоимость слова {word}:", score)
+
+# # Вариант 4
+# # Создаем словари с оценками букв для английского и русского алфавитов
+# eng_scores = {'A': 1, 'E': 1, 'I': 1, 'O': 1, 'U': 1, 'L': 1, 'N': 1, 'S': 1, 'T': 1, 'R': 1,
+#               'D': 2, 'G': 2,
+#               'B': 3, 'C': 3, 'M': 3, 'P': 3,
+#               'F': 4, 'H': 4, 'V': 4, 'W': 4, 'Y': 4,
+#               'K': 5,
+#               'J': 8, 'X': 8,
+#               'Q': 10, 'Z': 10}
+# rus_scores = {'А': 1, 'В': 1, 'Е': 1, 'И': 1, 'Н': 1, 'О': 1, 'Р': 1, 'С': 1, 'Т': 1,
+#               'Д': 2, 'К': 2, 'Л': 2, 'М': 2, 'П': 2, 'У': 2,
+#               'Б': 3, 'Г': 3, 'Ё': 3, 'Ь': 3, 'Я': 3,
+#               'Й': 4, 'Ы': 4,
+#               'Ж': 5, 'З': 5, 'Х': 5, 'Ц': 5, 'Ч': 5,
+#               'Ш': 8, 'Э': 8, 'Ю': 8,
+#               'Ф': 10, 'Щ': 10, 'Ъ': 10}
+
+# # Запрашиваем у пользователя ввод слова
+# word = input("Введите слово: ").upper()
+
+# # Вычисляем стоимость слова
+# score = 0
+# for letter in word:
+#     if letter in eng_scores:
+#         score += eng_scores[letter]
+#     elif letter in rus_scores:
+#         score += rus_scores[letter]
+
+# # Выводим стоимость слова
+# print(f"Стоимость слова {word}:", score)
+
+# # Вариант 5
+# k = 'ноутбук'
+# # 12
+# points_en = {1: 'AEIOULNSTR', 2: 'DG', 3: 'BCMP', 4: 'FHVWY', 5: 'K', 8: 'JX', 10: 'QZ'}
+# points_ru = {1: 'АВЕИНОРСТ', 2: 'ДКЛМПУ', 3: 'БГЁЬЯ', 4: 'ЙЫ', 5: 'ЖЗХЦЧ', 8: 'ШЭЮ', 10: 'ФЩЪ'}
+# word = k.upper()  # переводим все буквы в верхний регистр
+# count = 0
+# for i in word:
+#     if i in 'QWERTYUIOPASDFGHJKLZXCVBNM':
+#         for j in points_en:
+#             if i in points_en[j]:
+#                 count = count + j
+#     else:
+#         for j in points_en:
+#             if i in points_ru[j]:
+#                 count = count + j
+# print(count)
