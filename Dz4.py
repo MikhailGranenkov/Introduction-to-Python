@@ -118,3 +118,11 @@
 
 # # Вывод максимальной урожайности, которую может собрать собирающий модуль
 # print(max(arr_count))
+
+# # Вариант 3
+# arr = [5, 8, 6, 4, 9, 2, 7, 3]
+# arr_list = []
+# for i in range(len(arr)):
+#     mid = arr[i] + arr[i - 1] + arr[i - 2]
+#     arr_list.append(mid)
+# print((max(arr_list)))
