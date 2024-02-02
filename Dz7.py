@@ -25,6 +25,7 @@
 # 3 6 9
 
 
+# Вариант 1
 # def print_operation_table(operation, num_rows, num_columns):
 
 #     if num_rows <= 2 or num_columns <= 2:
@@ -36,7 +37,54 @@
 #             print(operation(i, j), end=' ')
 #         print()
 
-# print_operation_table(lambda x, y: x * y, 3, 5)
+# print_operation_table(lambda x, y: x + y, 4, 4)
+
+
+# Вариант 2
+# def print_operation_table(operation, num_rows, num_columns):
+#     if num_rows<2:
+#         print("ОШИБКА! Размерности таблицы должны быть больше 2!")
+#         return
+#     res = [[operation(row, col) for row in range(1, num_columns + 1)] for col in range(1, num_rows + 1)]
+
+#     for i in res:
+#         print(*[f"{x} " for x in i])
+
+
+# print_operation_table(lambda x, y: x * y, 3, 3)
+
+
+# Вариант 3
+# def print_operation_table(operation, num_rows=9, num_columns=9):
+#     if num_rows < 2 or num_columns < 2:
+#         print('ОШИБКА! Размерности таблицы должны быть больше 2!')
+#         return
+#     else:
+#         for i in range(1, num_rows + 1):
+#             row = ""
+#             for j in range(1, num_columns + 1):
+#                 result = operation(i, j)
+#                 row += str(result) + " "
+#             print(row)
+
+# print_operation_table(lambda x, y: x * y, 3, 3)
+
+
+# Вариант 4
+# def print_operation_table(operation, num_rows=9, num_columns=9):
+#     result = []
+#     if num_rows < 2 or num_columns < 2:
+#         print('ОШИБКА! Размерности таблицы должны быть больше 2!')
+#     else:
+#         for i in range(1, num_rows + 1):
+#             for j in range(1, num_columns + 1):
+#                 if j != num_columns :
+#                     result.append(f'{operation(i, j)} ')
+#                 else:
+#                     result.append(operation(i, j))
+#             result.append('\n')
+#         print(''.join([str(i) for i in result[:len(result) - 1]]))
+# print_operation_table(lambda x, y: x * y, 3, 3)
 
 
 # Задача 2
@@ -70,6 +118,7 @@
 # Парам пам-пам
 
 
+# Вариант 1
 # def check_vowels(stroka):
 #     vowels_count = {}
 #     for phrase in stroka:
@@ -104,3 +153,21 @@
 
 # stroka = input("Введите строку, разделенную по пробелам на фразы: ").split()
 # print(check_phrase_count(stroka))
+
+
+# Вариант 2
+# stroka = input("Введите строку, разделенную по пробелам на фразы: ")
+# vowels = ['а', 'е', 'ё', 'и', 'й', 'о', 'у', 'ы', 'э', 'ю', 'я']
+# phrases = stroka.split()
+# if len(phrases) < 2:
+#  print('Количество фраз должно быть больше одной!')
+# else:
+#  countVowels = []
+
+#  for i in phrases:
+#   countVowels.append(len([x for x in i if x.lower() in vowels]))
+
+#  if countVowels.count(countVowels[0]) == len(countVowels):
+#   print('Парам пам-пам')
+#  else:
+#   print('Пам парам')
