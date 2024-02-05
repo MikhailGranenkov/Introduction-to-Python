@@ -26,51 +26,21 @@
 
 
 # Вариант 1
-# def print_operation_table(operation, num_rows, num_columns):
-
-#     if num_rows <= 2 or num_columns <= 2:
-#         print("ОШИБКА! Размерности таблицы должны быть больше 2!")
-#         return
-
-#     for i in range(1, num_rows + 1):
-#         for j in range(1, num_columns + 1):
-#             print(operation(i, j), end=' ')
-#         print()
-
-# print_operation_table(lambda x, y: x + y, 4, 4)
-
-
-# Вариант 2
-# def print_operation_table(operation, num_rows, num_columns):
-#     if num_rows<2:
-#         print("ОШИБКА! Размерности таблицы должны быть больше 2!")
-#         return
-#     res = [[operation(row, col) for row in range(1, num_columns + 1)] for col in range(1, num_rows + 1)]
-
-#     for i in res:
-#         print(*[f"{x} " for x in i])
-
-
-# print_operation_table(lambda x, y: x * y, 3, 3)
-
-
-# Вариант 3
 # def print_operation_table(operation, num_rows=9, num_columns=9):
-#     if num_rows < 2 or num_columns < 2:
-#         print('ОШИБКА! Размерности таблицы должны быть больше 2!')
-#         return
+#     if num_columns > 2 and num_rows > 2:
+#         for i in range(1, num_rows+1):
+#             my_list = []
+#             for j in range(1, num_columns+1):
+#                 my_list.append(operation(i, j))
+
+#             print(*my_list)
 #     else:
-#         for i in range(1, num_rows + 1):
-#             row = ""
-#             for j in range(1, num_columns + 1):
-#                 result = operation(i, j)
-#                 row += str(result) + " "
-#             print(row)
+#         print("ОШИБКА! Размерности таблицы должны быть больше 2!")
 
 # print_operation_table(lambda x, y: x * y, 3, 3)
 
 
-# Вариант 4
+# Вариант 2 !!!
 # def print_operation_table(operation, num_rows=9, num_columns=9):
 #     result = []
 #     if num_rows < 2 or num_columns < 2:

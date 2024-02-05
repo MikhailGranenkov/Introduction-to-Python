@@ -1,3 +1,4 @@
+python3 -m venv .folder # - создать виртуальное окружение Mac
 python -m venv new_venv # - создать виртуальное окружение
 # source venv/bin/activate - активация ВО для линукс
 venv\Scripts\activate # - активация в виндоус (обязательно \ - обратный слэш)
