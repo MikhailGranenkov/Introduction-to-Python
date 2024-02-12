@@ -120,7 +120,33 @@ def search_contact():
         if search in lst_contact[i_var]:
             print(str_contact)
 
-             
+def change_contact():
+    print_contacts()
+    index = int(input('Введите номер контакта для изменения: '))
+    with open("phonebook.txt", 'r', encoding='utf-8') as file:
+        contacts_list = file.readlines()
+    if index <= len(contacts_list):
+        contact_str = create_contact()
+        contacts_list[index - 1] = contact_str
+        with open("phonebook.txt", 'w', encoding='utf-8') as file:
+            file.writelines(contacts_list)
+        print(f'Контакт с номером {index} успешно изменен')
+    else:
+        print('Ошибка: указанный номер контакта не существует')
+
+
+def delete_contact():
+    print_contacts()
+    index = int(input('Введите номер контакта для удаления: '))
+    with open("phonebook.txt", 'r', encoding='utf-8') as file:
+        contacts_list = file.readlines()
+    if index <= len(contacts_list):
+        del contacts_list[index - 1]
+        with open("phonebook.txt", 'w', encoding='utf-8') as file:
+            file.writelines(contacts_list)
+        print(f'Контакт с номером {index} успешно удален')
+    else:
+        print('Ошибка: указанный номер контакта не существует')
 
 
 def interface():
@@ -128,7 +154,7 @@ def interface():
         pass
 
     var = 0
-    while var != '6':  # увеличиваем количество доступных действий на 6 и добавляем новую опцию
+    while var != '8':  # увеличиваем количество доступных действий на 1 и добавляем новые опции
         print(
             'Возможные варианты:\n'
             '1. Добавить контакт\n'
@@ -136,16 +162,16 @@ def interface():
             '3. Поиск контакта\n'
             '4. Копировать все контакты в newphonebook.txt\n'
             '5. Скопировать контакт по номеру строки\n'
-            '6. Выход'
+            '6. Изменить контакт\n'
+            '7. Удалить контакт\n'
+            '8. Выход'
         )
         print()
         var = input('выберите вариант действия: ')
-        while var not in ('1', '2', '3', '4', '5', '6'):
+        while var not in ('1', '2', '3', '4', '5', '6', '7', '8'):
             print('некорректный ввод!')
             var = input('выберите вариант действия: ')
         print()
-
-        # код работы с вариантами действий остается тем же
 
         match var:
             case '1':
@@ -161,11 +187,61 @@ def interface():
                 line_number = int(input('Введите номер строки для копирования: '))
                 copy_contact_by_line_number(line_number)
             case '6':
+                change_contact()
+            case '7':
+                delete_contact()
+            case '8':
                 print('До свидания')
         print()
 
+
 if __name__ == '__main__':
-    interface()
+    interface()             
+
+
+# def interface():
+#     with open("phonebook.txt", 'a', encoding='utf-8'):
+#         pass
+
+#     var = 0
+#     while var != '6':  # увеличиваем количество доступных действий на 6 и добавляем новую опцию
+#         print(
+#             'Возможные варианты:\n'
+#             '1. Добавить контакт\n'
+#             '2. Вывести на экран\n'
+#             '3. Поиск контакта\n'
+#             '4. Копировать все контакты в newphonebook.txt\n'
+#             '5. Скопировать контакт по номеру строки\n'
+#             '6. Выход'
+#         )
+#         print()
+#         var = input('выберите вариант действия: ')
+#         while var not in ('1', '2', '3', '4', '5', '6'):
+#             print('некорректный ввод!')
+#             var = input('выберите вариант действия: ')
+#         print()
+
+#         # код работы с вариантами действий остается тем же
+
+#         match var:
+#             case '1':
+#                 add_contact()
+#             case '2':
+#                 print_contacts()
+#             case '3':
+#                 search_contact()
+#             case '4':
+#                 copy_phonebook()
+#                 print('Все данные успешно скопированы в newphonebook.txt')
+#             case '5':
+#                 line_number = int(input('Введите номер строки для копирования: '))
+#                 copy_contact_by_line_number(line_number)
+#             case '6':
+#                 print('До свидания')
+#         print()
+
+# if __name__ == '__main__':
+#     interface()
 
 
 
