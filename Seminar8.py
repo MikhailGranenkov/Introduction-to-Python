@@ -72,6 +72,17 @@ def copy_phonebook():
         target.write(contacts_str)
 
 
+def copy_contact_by_line_number(line_number):
+    with open("phonebook.txt", 'r', encoding='utf-8') as file:
+        contacts_str = file.readlines()
+
+    if line_number <= len(contacts_str):
+        with open("newphonebook.txt", 'a', encoding='utf-8') as target:
+            target.write(contacts_str[line_number - 1])
+            print(f'Контакт из строки {line_number} успешно скопирован в newphonebook.txt')
+    else:
+        print(f'Ошибка: строка с номером {line_number} отсутствует в phonebook.txt')
+
 
 def print_contacts():
     with open("phonebook.txt", 'r', encoding='utf-8') as file:
@@ -117,38 +128,45 @@ def interface():
         pass
 
     var = 0
-    while var != '5':
+    while var != '6':  # увеличиваем количество доступных действий на 6 и добавляем новую опцию
         print(
             'Возможные варианты:\n'
             '1. Добавить контакт\n'
             '2. Вывести на экран\n'
             '3. Поиск контакта\n'
-            '4. Копировать в newphonebook.txt\n'
-            '5. Выход'
-            )
+            '4. Копировать все контакты в newphonebook.txt\n'
+            '5. Скопировать контакт по номеру строки\n'
+            '6. Выход'
+        )
         print()
         var = input('выберите вариант действия: ')
-        while var not in ('1', '2', '3', '4', '5'):
+        while var not in ('1', '2', '3', '4', '5', '6'):
             print('некорректный ввод!')
             var = input('выберите вариант действия: ')
-        print()    
+        print()
 
-        match var: 
+        # код работы с вариантами действий остается тем же
+
+        match var:
             case '1':
                 add_contact()
             case '2':
                 print_contacts()
-            case '3': 
+            case '3':
                 search_contact()
             case '4':
                 copy_phonebook()
-                print('Данные успешно скопированы в newphonebook.txt')
+                print('Все данные успешно скопированы в newphonebook.txt')
             case '5':
-                print('До свидания') 
-        print()        
+                line_number = int(input('Введите номер строки для копирования: '))
+                copy_contact_by_line_number(line_number)
+            case '6':
+                print('До свидания')
+        print()
 
 if __name__ == '__main__':
     interface()
+
 
 
 
