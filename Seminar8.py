@@ -63,7 +63,16 @@ def add_contact():
     with open("phonebook.txt", 'a', encoding='utf-8') as file:
         file.write(contact_str)
     
-           
+
+def copy_phonebook():
+    with open("phonebook.txt", 'r', encoding='utf-8') as source_phonebook:
+        contacts_str = source_phonebook.read()
+
+    with open("newphonebook.txt", 'w', encoding='utf-8') as target:
+        target.write(contacts_str)
+
+
+
 def print_contacts():
     with open("phonebook.txt", 'r', encoding='utf-8') as file:
         contacts_str = file.read()
@@ -108,17 +117,18 @@ def interface():
         pass
 
     var = 0
-    while var != '4':
+    while var != '5':
         print(
             'Возможные варианты:\n'
             '1. Добавить контакт\n'
             '2. Вывести на экран\n'
             '3. Поиск контакта\n'
-            '4. Выход'
+            '4. Копировать в newphonebook.txt\n'
+            '5. Выход'
             )
         print()
         var = input('выберите вариант действия: ')
-        while var not in ('1', '2', '3', '4'):
+        while var not in ('1', '2', '3', '4', '5'):
             print('некорректный ввод!')
             var = input('выберите вариант действия: ')
         print()    
@@ -131,12 +141,15 @@ def interface():
             case '3': 
                 search_contact()
             case '4':
+                copy_phonebook()
+                print('Данные успешно скопированы в newphonebook.txt')
+            case '5':
                 print('До свидания') 
         print()        
 
-
 if __name__ == '__main__':
     interface()
+
 
 
 # Дополнительно. Задача про Винни-Пуха.
