@@ -199,53 +199,6 @@ if __name__ == '__main__':
     interface()             
 
 
-# def interface():
-#     with open("phonebook.txt", 'a', encoding='utf-8'):
-#         pass
-
-#     var = 0
-#     while var != '6':  # увеличиваем количество доступных действий на 6 и добавляем новую опцию
-#         print(
-#             'Возможные варианты:\n'
-#             '1. Добавить контакт\n'
-#             '2. Вывести на экран\n'
-#             '3. Поиск контакта\n'
-#             '4. Копировать все контакты в newphonebook.txt\n'
-#             '5. Скопировать контакт по номеру строки\n'
-#             '6. Выход'
-#         )
-#         print()
-#         var = input('выберите вариант действия: ')
-#         while var not in ('1', '2', '3', '4', '5', '6'):
-#             print('некорректный ввод!')
-#             var = input('выберите вариант действия: ')
-#         print()
-
-#         # код работы с вариантами действий остается тем же
-
-#         match var:
-#             case '1':
-#                 add_contact()
-#             case '2':
-#                 print_contacts()
-#             case '3':
-#                 search_contact()
-#             case '4':
-#                 copy_phonebook()
-#                 print('Все данные успешно скопированы в newphonebook.txt')
-#             case '5':
-#                 line_number = int(input('Введите номер строки для копирования: '))
-#                 copy_contact_by_line_number(line_number)
-#             case '6':
-#                 print('До свидания')
-#         print()
-
-# if __name__ == '__main__':
-#     interface()
-
-
-
-
 # Дополнительно. Задача про Винни-Пуха.
 
 # 1
